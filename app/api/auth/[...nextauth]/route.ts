@@ -15,14 +15,14 @@ const handler = NextAuth({
   }),
   callbacks: {
     session: async ({ session, token }) => {
-      if (session?.user) {
-        session.user.id = token.uid as string;
+      if (session?.user && token.sub) {
+        (session.user as any).id = token.sub;
       }
       return session;
     },
     jwt: async ({ user, token }) => {
       if (user) {
-        token.uid = user.id;
+        token.sub = user.id;
       }
       return token;
     },
