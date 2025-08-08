@@ -4,7 +4,12 @@ import { supabase } from '@/lib/supabase';
 
 export async function GET() {
   try {
-    const symbols = ['AAPL', 'GOOGL', 'MSFT', 'SPY', 'QQQ'];
+    const symbols = [
+  'AAPL', 'GOOGL', 'MSFT', 'SPY', 'QQQ',
+  'VTI', 'IVV', 'VEA', 'VWO',
+  'TSLA', 'NVDA', 'META', 'AMZN',
+  'JPM', 'JNJ', 'PG'
+];
     const stockData = await getStockData(symbols);
     
     // Actualizar cada instrumento en la base de datos
