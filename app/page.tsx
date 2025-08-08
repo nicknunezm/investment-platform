@@ -22,7 +22,7 @@ export default function Home() {
     const { data } = await supabase
       .from('instruments')
       .select('*')
-      .limit(5)
+      .limit(15)
     
     setInstruments(data || [])
     setLoading(false)
@@ -89,7 +89,18 @@ export default function Home() {
                 <tbody>
                   {instruments.map((instrument) => (
                     <tr key={instrument.id} className="border-b hover:bg-gray-50">
-                      <td className="py-3 px-4 font-semibold">{instrument.symbol}</td>
+                      <td className="py-3 px-4">
+  <div className="flex items-center gap-2">
+    <span className="font-semibold">{instrument.symbol}</span>
+    <span className={`px-2 py-1 text-xs rounded-full ${
+      instrument.type === 'stock' ? 'bg-blue-100 text-blue-800' :
+      instrument.type === 'etf' ? 'bg-green-100 text-green-800' :
+      'bg-purple-100 text-purple-800'
+    }`}>
+      {instrument.type.toUpperCase()}
+    </span>
+  </div>
+</td>
                       <td className="py-3 px-4">{instrument.name}</td>
                       <td className="py-3 px-4">${instrument.current_price?.toFixed(2)}</td>
                       <td className={`py-3 px-4 ${instrument.price_change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
