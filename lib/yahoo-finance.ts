@@ -39,7 +39,16 @@ export async function getStockData(symbols: string[]): Promise<StockData[]> {
 
 export async function updateInstrumentPrices() {
   try {
-    const symbols = ['AAPL', 'GOOGL', 'MSFT', 'SPY', 'QQQ'];
+    const symbols = [
+  // Tech stocks
+  'AAPL', 'GOOGL', 'MSFT', 'TSLA', 'NVDA', 'META', 'AMZN',
+  // ETFs
+  'SPY', 'QQQ', 'VTI', 'IVV', 'VEA', 'VWO', 'MTUM',
+  // Traditional stocks  
+  'JPM', 'JNJ', 'PG',
+  // Crypto
+  'BTC-USD', 'ETH-USD'
+];
     const stockData = await getStockData(symbols);
     
     // Aquí luego actualizaremos la base de datos

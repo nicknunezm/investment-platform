@@ -58,7 +58,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Plataforma de Inversiones
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-800 mb-8">
             Señales de inversión inteligentes para tu cartera de largo plazo
           </p>
           
@@ -78,12 +78,12 @@ export default function Home() {
               <table className="min-w-full">
                 <thead>
                   <tr className="border-b">
-                    <th className="text-left py-3 px-4">Símbolo</th>
-                    <th className="text-left py-3 px-4">Nombre</th>
-                    <th className="text-left py-3 px-4">Precio</th>
-                    <th className="text-left py-3 px-4">Cambio</th>
-                    <th className="text-left py-3 px-4">%</th>
-                    <th className="text-left py-3 px-4">Actualizado</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">Símbolo</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">Nombre</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">Precio</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">Cambio</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">%</th>
+                    <th className="text-left py-3 px-4 font-semibold text-gray-900">Actualizado</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -109,7 +109,7 @@ export default function Home() {
                       <td className={`py-3 px-4 ${instrument.price_change_percent >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                         {instrument.price_change_percent?.toFixed(2)}%
                       </td>
-                      <td className="py-3 px-4 text-gray-500 text-sm">
+                      <td className="py-3 px-4 text-gray-800 text-sm font-medium">
                         {new Date(instrument.updated_at).toLocaleTimeString()}
                       </td>
                     </tr>

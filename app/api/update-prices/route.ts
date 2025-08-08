@@ -5,10 +5,14 @@ import { supabase } from '@/lib/supabase';
 export async function GET() {
   try {
     const symbols = [
-  'AAPL', 'GOOGL', 'MSFT', 'SPY', 'QQQ',
-  'VTI', 'IVV', 'VEA', 'VWO',
-  'TSLA', 'NVDA', 'META', 'AMZN',
-  'JPM', 'JNJ', 'PG'
+  // Tech stocks
+  'AAPL', 'GOOGL', 'MSFT', 'TSLA', 'NVDA', 'META', 'AMZN',
+  // ETFs
+  'SPY', 'QQQ', 'VTI', 'IVV', 'VEA', 'VWO', 'MTUM',
+  // Traditional stocks  
+  'JPM', 'JNJ', 'PG',
+  // Crypto
+  'BTC-USD', 'ETH-USD'
 ];
     const stockData = await getStockData(symbols);
     
