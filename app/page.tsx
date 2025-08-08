@@ -7,6 +7,7 @@ interface Instrument {
   id: number;
   symbol: string;
   name: string;
+  type: string;
   current_price: number;
   price_change: number;
   price_change_percent: number;
@@ -22,7 +23,7 @@ export default function Home() {
     const { data } = await supabase
       .from('instruments')
       .select('*')
-      .limit(15)
+      .limit(16)
     
     setInstruments(data || [])
     setLoading(false)
