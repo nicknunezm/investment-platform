@@ -2,6 +2,8 @@
 import { supabase } from '@/lib/supabase'
 import AuthButton from '@/components/auth/AuthButton'
 import { useState, useEffect } from 'react'
+import PriceChart from '@/components/charts/PriceChart'
+import { generatePriceHistory, getChartColor } from '@/lib/utils'
 
 interface Instrument {
   id: number;
@@ -119,6 +121,17 @@ export default function Home() {
               </table>
             </div>
           </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {instruments.slice(0, 6).map((instrument) => (
+            <PriceChart
+              key={instrument.id}
+              data={generatePriceHistory(instrument.current_price, instrument.symbol)}
+              symbol={instrument.symbol}
+              color={getChartColor(instrument.price_change)}
+            />
+          ))}
+        </div>
           
           <div className="bg-blue-600 text-white rounded-lg p-8">
             <h3 className="text-2xl font-bold mb-4">¿Listo para comenzar?</h3>
