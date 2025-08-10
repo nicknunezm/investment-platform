@@ -65,7 +65,7 @@ export default function Home() {
           
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold">Instrumentos Destacados</h2>
+              <h2 className="text-2xl font-semibold text-gray-900">Instrumentos Destacados</h2>
               <button
                 onClick={updatePrices}
                 disabled={updating}
@@ -102,8 +102,8 @@ export default function Home() {
     </span>
   </div>
 </td>
-                      <td className="py-3 px-4">{instrument.name}</td>
-                      <td className="py-3 px-4">${instrument.current_price?.toFixed(2)}</td>
+                      <td className="py-3 px-4 text-gray-900 font-medium">{instrument.name}</td>
+                      <td className="py-3 px-4" text-gray-900 font-semibold>${instrument.current_price?.toFixed(2)}</td>
                       <td className={`py-3 px-4 ${instrument.price_change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                         ${instrument.price_change?.toFixed(2)}
                       </td>
